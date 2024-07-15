@@ -1,7 +1,7 @@
 {
   "name": "ac-ranking-new",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@floating-ui/react": "^0.26.19",
     "@reduxjs/toolkit": "^1.9.7",
