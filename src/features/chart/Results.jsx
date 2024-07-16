@@ -1,13 +1,14 @@
-import { current } from "@reduxjs/toolkit";
 import { Modal, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { closeResults } from "./chartSlice";
 
 function Results() {
 
     const renderResults = useSelector((state) => state.chart.renderResults)
     const scores = useSelector((state) => state.chart.scores)
     const currentUser = useSelector((state) => state.chart.user)
-    console.log(currentUser)
+    const dispatch = useDispatch()
+
 
     return ( 
 <Modal
@@ -22,16 +23,18 @@ function Results() {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p style={{textAlign: "center"}}>
+        <div style={{textAlign: "center"}}>
         {scores.map((x) => {
         if (x.user !== currentUser)
-            return (<div style={{display: "inline-block", margin: "5px", fontSize: "1vw"}} key={Math.random()}>{x.user}: {x.userScore.toFixed(2)}</div>) 
+            return (<div style={{display: "inline-block", margin: "5px", fontSize: "1vw"}} key={Math.random()}>{x.user}: {x.userScore.toFixed(1)}%</div>) 
         else return (null) 
         })}
-        </p>
+        </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button style={{margin: "auto"}} onClick={() => window.location.reload()}>Reset App</Button>
+      <Button onClick={() => dispatch(closeResults())} >Return to Ranking</Button> 
+      <Button  onClick={() => window.location.reload()}>Share Results</Button> 
+      <Button  onClick={() => window.location.reload()}>Reset App</Button>
       </Modal.Footer>
     </Modal>
      );

@@ -79,37 +79,30 @@ export const chartSlice = createSlice({
     filterUser: (state, action) => {
       state.user = action.payload;
     },
-    submitData: (state) => {
-
+    closeResults: (state) => {
+      state.renderResults = false
+    },
+    submitData2: (state) => {
       var currentList = [...current(state.albumList)]
-      var scoreList = [...current(state.scores)]
-      var subTotalArray =[]
+      var scoreList = []
       var values = []
-      
-      for (let i = 0; i < currentList.length; i++)
-        if (currentList[i].rating !== null)
-          subTotalArray.push(currentList[i].rating)
-
-      var totalSum = subTotalArray.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue
-      },0);
 
       state.userList.forEach(x => {
         for (let i = 0; i < currentList.length; i++)
-          
           if ((currentList[i].user === x) && (currentList[i].rating !== null))
             values.push(currentList[i].rating)
             var sum = values.reduce((accumulator, currentValue) => {
               return accumulator + currentValue
             },0);
-            var score = sum / totalSum
+            var totalPossible = values.length * 5
+            var score = (sum / totalPossible) * 100
             var scoreObj = {user: x, userScore: score}
             scoreList.push(scoreObj)
-            state.scores = scoreList
-            state.renderResults = true
+            values = []
       });
+      state.scores = scoreList
+      state.renderResults = true
 
-      
 
     },
     uploadData: (state, action) => {
@@ -120,6 +113,23 @@ export const chartSlice = createSlice({
     },
     handleError: (state, action) => {
       state.error = action.payload;
+    },
+    getRandom: (state) => {
+      var newObj = [...current(state.albumList)]
+    
+      var updatedArray = newObj.map(x => {
+          return {
+            artist: x.artist,
+            user: x.user,
+            year: x.year,
+            title: x.title,
+            pickDate: x.pickDate,
+            artLink: x.artLink,
+            popularity: x.popularity,
+            rating: Math.floor(Math.random() * 5) + 1}
+    })
+     
+      state.albumList = updatedArray
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -155,6 +165,6 @@ export const chartSlice = createSlice({
   },
 });
 
-export const { updateRating, dragStart, filterUser, submitData, uploadData, resetData, handleError } = chartSlice.actions;
+export const { updateRating, dragStart, filterUser, submitData, uploadData, resetData, handleError, submitData2, closeResults, getRandom } = chartSlice.actions;
 
 export default chartSlice.reducer;

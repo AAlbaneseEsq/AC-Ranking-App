@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { submitData, resetData, handleError } from "./chartSlice";
+import { submitData2, resetData, handleError, getRandom } from "./chartSlice";
 import { Modal } from "react-bootstrap";
 
 function Submit() {
@@ -19,7 +19,7 @@ function Submit() {
     }
 
     function submitForm() {
-        if (validation() === true) return (dispatch(submitData())); else return (dispatch(handleError(true)))
+        if (validation() === true) return (dispatch(submitData2())); else return (dispatch(handleError(true)))
     }
 
     function hideChart() {
@@ -31,6 +31,7 @@ function Submit() {
 
     return ( 
         <div style={hideChart()}>
+            <Button style={{margin: "5px"}} onClick={() => dispatch(getRandom())}>Random Ranking</Button>
             <Button style={{margin: "5px"}} onClick={() => dispatch(resetData())}>Reset Ratings</Button>
             <Button style={{margin: "5px"}}>Upload Previous Rankings</Button>
             <Button style={{margin: "5px"}} onClick={() => submitForm()}>Submit Your Rankings</Button>
