@@ -33,7 +33,7 @@ function Results() {
       </Modal.Body>
       <Modal.Footer>
       <Button onClick={() => dispatch(closeResults())} >Return to Ranking</Button> 
-      <Button  onClick={() => window.location.reload()}>Share Results</Button> 
+      <Button>Share Results</Button> 
       <Button  onClick={() => window.location.reload()}>Reset App</Button>
       </Modal.Footer>
     </Modal>
