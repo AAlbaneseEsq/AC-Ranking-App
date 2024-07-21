@@ -7,6 +7,7 @@ const initialState = {
   albumList: [],
   fetchStatus: 'idle',
   error: false,
+  warning: false,
   dragging: null,
   user: null,
   userList: ['ajma', 'tom', 'ryan', 'rachel', 'jill', 'ricardo'],
@@ -133,11 +134,13 @@ export const chartSlice = createSlice({
     },
     saveLocal: (state) => {
       localStorage.setItem("savedRanks", JSON.stringify(state.albumList));
-      console.log(localStorage.savedRanks)
     },
     getLocal: (state) => {
       const savedRanks = JSON.parse(localStorage.savedRanks)
       state.albumList = savedRanks
+    },
+    handleWarning: (state, action) => {
+      state.warning = action.payload
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -173,6 +176,6 @@ export const chartSlice = createSlice({
   },
 });
 
-export const { updateRating, dragStart, filterUser, submitData, uploadData, resetData, handleError, submitData2, closeResults, getRandom, saveLocal, getLocal } = chartSlice.actions;
+export const { updateRating, dragStart, filterUser, submitData, uploadData, resetData, handleError, submitData2, closeResults, getRandom, saveLocal, getLocal, handleWarning } = chartSlice.actions;
 
 export default chartSlice.reducer;

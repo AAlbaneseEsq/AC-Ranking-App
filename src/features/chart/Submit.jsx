@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { submitData2, resetData, handleError, getRandom, saveLocal, getLocal } from "./chartSlice";
+import { submitData2, resetData, handleError, getRandom, saveLocal, getLocal, handleWarning } from "./chartSlice";
 import { Modal } from "react-bootstrap";
 
 function Submit() {
@@ -8,6 +8,8 @@ function Submit() {
     const list = useSelector((state) => state.chart.albumList)
     const user = useSelector((state) => state.chart.user)
     const error = useSelector((state) => state.chart.error)
+    const warning = useSelector((state) => state.chart.warning)
+
 
     const dispatch = useDispatch()
 
@@ -34,7 +36,7 @@ function Submit() {
             <Button style={{margin: "5px"}} onClick={() => dispatch(getRandom())}>Random Ranking (Delete After Testing)</Button>
             <Button style={{margin: "5px"}} onClick={() => dispatch(resetData())}>Reset Ratings</Button>
             <Button style={{margin: "5px"}} onClick={() => dispatch(getLocal())}>Get Previous Rankings</Button>
-            <Button style={{margin: "5px"}} onClick={() => dispatch(saveLocal())}>Save Rankings</Button>
+            <Button style={{margin: "5px"}} onClick={() => dispatch(handleWarning(true))}>Save Rankings</Button>
             <Button style={{margin: "5px"}} onClick={() => submitForm()}>Get Results</Button>
         
     <Modal
@@ -50,6 +52,28 @@ function Submit() {
       </Modal.Header>
       <Modal.Footer>
         <Button onClick={() => dispatch(handleError(false))} style={{margin: "auto"}}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+
+    <Modal
+      show={warning}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter" style={{margin: "auto"}}>
+          Warning!
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        Saving this ranking will overwrite any previous saved data. 
+        <br />
+        Erasing your browser cookies/cache will also delete your ranking.
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={() => dispatch(saveLocal())}>Continue with Save</Button>
+        <Button onClick={() => dispatch(handleWarning(false))} style={{margin: "auto"}}>Close</Button>
       </Modal.Footer>
     </Modal>
         
