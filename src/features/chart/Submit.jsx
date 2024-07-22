@@ -2,7 +2,7 @@ import { Button, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { submitData2, resetData, handleError, getRandom, saveLocal, getLocal, handleWarning } from "./chartSlice";
 import { Modal, Navbar, Dropdown } from "react-bootstrap";
-import classes from "./myChart.module.css"
+import styles from "./myChart.module.css"
 
 function Submit() {
 
@@ -35,22 +35,22 @@ function Submit() {
     return ( 
     
     <div>
-    <Navbar style={{width: "100%", marginBottom: "10px"}}> 
+    <Navbar style={{marginBottom: "10px"}}> 
       <Container>
       <Dropdown style={hideChart()}>
-      <Dropdown.Toggle id="dropdown-basic">
+      <Dropdown.Toggle className={styles.TopNavButton} id="dropdown-basic">
         Options
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1" onClick={() => dispatch(getRandom())}>Random Ranking</Dropdown.Item>
-        <Dropdown.Item href="#/action-2" onClick={() => dispatch(resetData())}>Reset Rankings</Dropdown.Item>
+        <Dropdown.Item href="#/action-1" onClick={() => dispatch(getRandom())}>Reset Rankings</Dropdown.Item>
+        <Dropdown.Item href="#/action-2" onClick={() => dispatch(resetData())}>Random Ranking</Dropdown.Item>
         <Dropdown.Item href="#/action-3" onClick={() => dispatch(getLocal())}>Load Saved Ranking</Dropdown.Item>
         <Dropdown.Item href="#/action-4" onClick={() => dispatch(handleWarning(true))}>Save Current Ranking</Dropdown.Item>
       </Dropdown.Menu>
       </Dropdown>
       <Container><Navbar.Brand style={{fontSize: "3vmax"}}>Album Club Ranking App</Navbar.Brand></Container>
-      <Button style={hideChart()} onClick={() => submitForm()} >Get Results</Button>
+      <Button className={styles.TopNavButton} style={hideChart()} onClick={() => submitForm()} >Get Results</Button>
 
       </Container>
     </Navbar>
