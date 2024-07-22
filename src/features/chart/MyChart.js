@@ -4,7 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Image } from 'react-bootstrap';
 import { updateRating,dragStart } from './chartSlice';
-import '../chart/Chart.css'
 
 export function MyChart() {
 
@@ -63,23 +62,27 @@ return (
 <div style={hideChart()}>
 <Container fluid style={{outline: "black solid 2px", margin: "auto"}}>
 <Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "1.5vw"}} >10/10 Holy Moly</Col>
+  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}} >&#128175; Holy Moly</Col>
+  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="6"> {generateContent(list, 6)} </Col>
+</Row>
+<Row style={{minHeight: "100px"}}>
+  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}} >&#128293; Straight Fire</Col>
   <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="5"> {generateContent(list, 5)} </Col>
 </Row>
 <Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "1.5vw"}}>Faves</Col>
+  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}>&#128184; Cash Money</Col>
   <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="4"> {generateContent(list, 4)}</Col>
 </Row>
 <Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "1.5vw"}}>Waow so good</Col>
+  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}>&#128054; Much waow, very good</Col>
   <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="3"> {generateContent(list, 3)}</Col>
 </Row>
 <Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "1.5vw"}}>Okay, would listen again!</Col>
+  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}>&#9994; Respect</Col>
   <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="2"> {generateContent(list, 2)}</Col>
 </Row>
 <Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "1.5vw"}}>It was fine!!!</Col>
+  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}> &#128579; It was fine!!!</Col>
   <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="1">{generateContent(list, 1)}</Col>
 </Row>
 </Container>

@@ -1,7 +1,8 @@
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { submitData2, resetData, handleError, getRandom, saveLocal, getLocal, handleWarning } from "./chartSlice";
-import { Modal } from "react-bootstrap";
+import { Modal, Navbar, Dropdown } from "react-bootstrap";
+import classes from "./myChart.module.css"
 
 function Submit() {
 
@@ -32,13 +33,29 @@ function Submit() {
 
 
     return ( 
-        <div style={hideChart()}>
-            <Button style={{margin: "5px"}} onClick={() => dispatch(getRandom())}>Random Ranking (Delete After Testing)</Button>
-            <Button style={{margin: "5px"}} onClick={() => dispatch(resetData())}>Reset Ratings</Button>
-            <Button style={{margin: "5px"}} onClick={() => dispatch(getLocal())}>Get Previous Rankings</Button>
-            <Button style={{margin: "5px"}} onClick={() => dispatch(handleWarning(true))}>Save Rankings</Button>
-            <Button style={{margin: "5px"}} onClick={() => submitForm()}>Get Results</Button>
-        
+    
+    <div>
+    <Navbar style={{width: "100%", marginBottom: "10px"}}> 
+      <Container>
+      <Dropdown style={hideChart()}>
+      <Dropdown.Toggle id="dropdown-basic">
+        Options
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1" onClick={() => dispatch(getRandom())}>Random Ranking</Dropdown.Item>
+        <Dropdown.Item href="#/action-2" onClick={() => dispatch(resetData())}>Reset Rankings</Dropdown.Item>
+        <Dropdown.Item href="#/action-3" onClick={() => dispatch(getLocal())}>Load Saved Ranking</Dropdown.Item>
+        <Dropdown.Item href="#/action-4" onClick={() => dispatch(handleWarning(true))}>Save Current Ranking</Dropdown.Item>
+      </Dropdown.Menu>
+      </Dropdown>
+      <Container><Navbar.Brand style={{fontSize: "3vmax"}}>Album Club Ranking App</Navbar.Brand></Container>
+      <Button style={hideChart()} onClick={() => submitForm()} >Get Results</Button>
+
+      </Container>
+    </Navbar>
+
+      
     <Modal
       show={error}
       size="md"
@@ -66,14 +83,14 @@ function Submit() {
           Warning!
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style={{textAlign: "center"}}>
         Saving this ranking will overwrite any previous saved data. 
         <br />
         Erasing your browser cookies/cache will also delete your ranking.
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={() => dispatch(saveLocal())}>Continue with Save</Button>
-        <Button onClick={() => dispatch(handleWarning(false))} style={{margin: "auto"}}>Close</Button>
+        <Button onClick={() => dispatch(handleWarning(false))} style={{margin: "auto"}}>Cancel</Button>
+        <Button onClick={() => dispatch(saveLocal())} style={{margin: "auto"}}>Continue with Save</Button>
       </Modal.Footer>
     </Modal>
         

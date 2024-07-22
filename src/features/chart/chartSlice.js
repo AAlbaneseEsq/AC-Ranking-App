@@ -95,7 +95,7 @@ export const chartSlice = createSlice({
             var sum = values.reduce((accumulator, currentValue) => {
               return accumulator + currentValue
             },0);
-            var totalPossible = values.length * 5
+            var totalPossible = values.length * 6
             var score = (sum / totalPossible) * 100
             var scoreObj = {user: x, userScore: score}
             scoreList.push(scoreObj)
@@ -127,7 +127,7 @@ export const chartSlice = createSlice({
             pickDate: x.pickDate,
             artLink: x.artLink,
             popularity: x.popularity,
-            rating: Math.floor(Math.random() * 5) + 1}
+            rating: Math.floor(Math.random() * 6) + 1}
     })
      
       state.albumList = updatedArray

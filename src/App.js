@@ -20,10 +20,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{margin: "20px", fontSize: "3vw"}}>Album Club Ranking App</h1>
+        <Submit  />        
         <MyRadio />
         <MyChart />
-        <Submit  />
         <Results />
     </div>
   );
