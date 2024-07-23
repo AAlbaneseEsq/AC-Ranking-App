@@ -1,4 +1,39 @@
-.TopNavButton {
-    font-weight: bold;
-    font-size: large;
+.TopNavTitle {
+    font-size: 3vmax;
+}
+
+.ResultsText {
+    display: inline-block;
+    margin: 5px;
+    font-size: 2vmax;
+}
+
+.Category {
+    outline: black solid 1px;
+    font-size: 2vmax; 
+    align-content: center
+}
+
+.Row {
+    height: fit-content;
+}
+
+.Ranking {
+    outline: black solid 1px; 
+    padding: 20px
+}
+
+.Chart {
+    outline: black solid 2px;
+    margin: auto;
+}
+
+.Art {
+    width: 8vh;
+    min-width: 75px;
+}
+
+.Null {
+    margin-top: 50px;
+    margin-bottom: 25px
 }

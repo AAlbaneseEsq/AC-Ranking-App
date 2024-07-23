@@ -37,21 +37,22 @@ function Submit() {
     <div>
     <Navbar style={{marginBottom: "10px"}}> 
       <Container>
-      <Dropdown style={hideChart()}>
-      <Dropdown.Toggle className={styles.TopNavButton} id="dropdown-basic">
+      <Dropdown style={hideChart()} >
+      <Dropdown.Toggle id="dropdown-basic">
         Options
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1" onClick={() => dispatch(getRandom())}>Reset Rankings</Dropdown.Item>
-        <Dropdown.Item href="#/action-2" onClick={() => dispatch(resetData())}>Random Ranking</Dropdown.Item>
+        <Dropdown.Item href="#/action-1" onClick={() => dispatch(resetData())}>Reset Rankings</Dropdown.Item>
+        <Dropdown.Item href="#/action-2" onClick={() => dispatch(getRandom())} >Random Ranking</Dropdown.Item>
         <Dropdown.Item href="#/action-3" onClick={() => dispatch(getLocal())}>Load Saved Ranking</Dropdown.Item>
         <Dropdown.Item href="#/action-4" onClick={() => dispatch(handleWarning(true))}>Save Current Ranking</Dropdown.Item>
+        <Dropdown.Item href="#/action-5">Switch to Card View (Mobile-Friendly)</Dropdown.Item>
       </Dropdown.Menu>
       </Dropdown>
-      <Container><Navbar.Brand style={{fontSize: "3vmax"}}>Album Club Ranking App</Navbar.Brand></Container>
-      <Button className={styles.TopNavButton} style={hideChart()} onClick={() => submitForm()} >Get Results</Button>
-
+      <Container ><Navbar.Brand><span className={styles.TopNavTitle}>&#128191; Album Club Ranking App &#128191;</span></Navbar.Brand></Container>
+      <span style={hideChart()}><Button className={styles.TopNavButton} onClick={() => submitForm()} >Get Results</Button>
+      </span>
       </Container>
     </Navbar>
 

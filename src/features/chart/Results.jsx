@@ -1,6 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { closeResults } from "./chartSlice";
+import styles from './myChart.module.css'
 
 function Results() {
 
@@ -18,7 +19,7 @@ function Results() {
       centered
     >
       <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter" style={{margin: "auto", fontSize: "2vw"}}>
+        <Modal.Title id="contained-modal-title-vcenter" style={{margin: "auto", fontSize: "3vw"}}>
           Here are your results!
         </Modal.Title>
       </Modal.Header>
@@ -26,12 +27,12 @@ function Results() {
         <div style={{textAlign: "center"}}>
         {scores.map((x) => {
         if (x.user !== currentUser)
-            return (<div style={{display: "inline-block", margin: "5px", fontSize: "1vw"}} key={Math.random()}>{x.user}: {x.userScore.toFixed(1)}%</div>) 
+            return (<div className={styles.ResultsText} key={Math.random()}><span style={{textTransform: "capitalize"}}>{x.user}:</span> {x.userScore.toFixed(1)}%</div>) 
         else return (null) 
         })}
         </div>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer style={{margin: "auto"}}>
       <Button onClick={() => dispatch(closeResults())} >Return to Ranking</Button> 
       <Button>Share Results (TBD)</Button> 
       <Button  onClick={() => window.location.reload()}>Reset App</Button>

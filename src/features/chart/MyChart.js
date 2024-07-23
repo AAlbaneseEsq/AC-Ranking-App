@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Image } from 'react-bootstrap';
 import { updateRating,dragStart } from './chartSlice';
+import styles from './myChart.module.css'
 
 export function MyChart() {
 
@@ -26,7 +27,7 @@ export function MyChart() {
 
     const handleDrop = (e) => {
       e.preventDefault();
-      var rating = parseInt(e.target.className)
+      var rating = parseInt(e.target.id)
       var adj = (rating > 0) ? rating : null
       var data = dragging
       dispatch(updateRating({newRating: adj, oldObj: data}))
@@ -48,7 +49,7 @@ export function MyChart() {
               return (    
   
 
-            <Image src={x.artLink} width="100px" height="100px" alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} key={Math.random()}/>
+            <Image src={x.artLink} className={styles.Art} alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} key={Math.random()}/>
      
           )
           else return (null)
@@ -60,40 +61,40 @@ export function MyChart() {
 
 return (
 <div style={hideChart()}>
-<Container fluid style={{outline: "black solid 2px", margin: "auto"}}>
-<Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}} >&#128175; Holy Moly</Col>
-  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="6"> {generateContent(list, 6)} </Col>
+<Container fluid className={styles.Chart}>
+<Row className={styles.Row}>
+  <Col className={styles.Category} xs={2}>&#128175; Holy Moly</Col>
+  <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="6"> {generateContent(list, 6)} </Col>
 </Row>
-<Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}} >&#128293; Straight Fire</Col>
-  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="5"> {generateContent(list, 5)} </Col>
+<Row className={styles.Row}>
+  <Col className={styles.Category} xs={2}>&#128293; Straight Fire</Col>
+  <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="5"> {generateContent(list, 5)} </Col>
 </Row>
-<Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}>&#128184; Cash Money</Col>
-  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="4"> {generateContent(list, 4)}</Col>
+<Row className={styles.Row}>
+  <Col className={styles.Category} xs={2}>&#128184; Cash Money</Col>
+  <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="4"> {generateContent(list, 4)}</Col>
 </Row>
-<Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}>&#128054; Much waow, very good</Col>
-  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="3"> {generateContent(list, 3)}</Col>
+<Row className={styles.Row}>
+  <Col className={styles.Category} xs={2}>&#128054; Much waow, very good</Col>
+  <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="3"> {generateContent(list, 3)}</Col>
 </Row>
-<Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}>&#9994; Respect</Col>
-  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="2"> {generateContent(list, 2)}</Col>
+<Row className={styles.Row}>
+  <Col className={styles.Category} xs={2}>&#9994; Respect It</Col>
+  <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="2"> {generateContent(list, 2)}</Col>
 </Row>
-<Row style={{minHeight: "100px"}}>
-  <Col xs={2} style={{outline: "black solid 1px", fontSize: "2vmax", alignContent: "center"}}> &#128579; It was fine!!!</Col>
-  <Col style={{outline: "black solid 1px", padding: "20px"}} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="1">{generateContent(list, 1)}</Col>
+<Row  className={styles.Row}>
+  <Col className={styles.Category} xs={2}> &#128579; It was fine!!!</Col>
+  <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="1">{generateContent(list, 1)}</Col>
 </Row>
 </Container>
-  <div onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} className="null" style={{marginTop: "50px", marginBottom: "25px"}} >
+  <div className={styles.Null} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="null">
     {list.map(x =>     
     {
       if((x.rating === null))
         return ( 
       <div style={hideAlbums(x.user)} key={Math.random()}>
 
-      <Image src={x.artLink} width="100px" height="100px" alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} onDrop={(e) => handleDrop(e)} title={x.artist + ': ' + x.title} />
+      <Image src={x.artLink} className={styles.Art} alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} onDrop={(e) => handleDrop(e)} title={x.artist + ': ' + x.title} />
       <span className="tooltip"></span>
 
 
