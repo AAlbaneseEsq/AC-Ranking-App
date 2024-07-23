@@ -16,6 +16,7 @@
 
 .Row {
     height: fit-content;
+    min-height: 75px;
 }
 
 .Ranking {

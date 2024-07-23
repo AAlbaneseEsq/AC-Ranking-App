@@ -47,10 +47,7 @@ export function MyChart() {
           data.map(x => {
             if(x.rating === row)
               return (    
-  
-
-            <Image src={x.artLink} className={styles.Art} alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} key={Math.random()}/>
-     
+            <Image id={x.rating} src={x.artLink} className={styles.Art} alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} key={Math.random()} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)}/>
           )
           else return (null)
         }
@@ -93,11 +90,8 @@ return (
       if((x.rating === null))
         return ( 
       <div style={hideAlbums(x.user)} key={Math.random()}>
-
-      <Image src={x.artLink} className={styles.Art} alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} onDrop={(e) => handleDrop(e)} title={x.artist + ': ' + x.title} />
+      <Image id={x.rating} src={x.artLink} className={styles.Art} alt={x.title} draggable onDrag={(e) => handleDragStart(e, x)} onDragStart={(e) => myDrag(e)} onDrop={(e) => handleDrop(e)} title={x.artist + ': ' + x.title} onDragOver={handleDragOver}/>
       <span className="tooltip"></span>
-
-
     </div>
     )
     else return (null)
