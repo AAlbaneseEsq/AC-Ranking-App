@@ -35,7 +35,7 @@ function Submit() {
     return ( 
     
     <div>
-    <Navbar style={{marginBottom: "10px"}}> 
+    <Navbar className={styles.MyNav}> 
       <Container>
       <Dropdown style={hideChart()} >
       <Dropdown.Toggle id="dropdown-basic">

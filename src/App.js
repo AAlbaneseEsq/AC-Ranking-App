@@ -5,8 +5,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCSV } from './features/chart/chartSlice';
 import Results from './features/chart/Results';
-
-import './App.css';
 import Submit from './features/chart/Submit';
 
 function App() {

@@ -1,3 +1,10 @@
+.MyNav {
+    margin-bottom: 10px;
+    width: 100vw;
+    text-align: center;
+    height: 5vh;
+}
+
 .TopNavTitle {
     font-size: 3vmax;
 }
@@ -11,30 +18,34 @@
 .Category {
     outline: black solid 1px;
     font-size: 2vmax; 
-    align-content: center
+    align-content: center;
 }
 
 .Row {
-    height: fit-content;
     min-height: 75px;
+    height: 10vh;
 }
 
 .Ranking {
     outline: black solid 1px; 
-    padding: 20px
+    align-content: center;
+    padding: 10px;
 }
 
 .Chart {
     outline: black solid 2px;
     margin: auto;
+    width: 100vw;
+    height: 60vh;
 }
 
 .Art {
-    width: 8vh;
-    min-width: 75px;
+    aspect-ratio: 1/1;
+    max-height: 100px;
 }
 
 .Null {
-    margin-top: 50px;
-    margin-bottom: 25px
+    padding: 25px;
+    text-align: center;    
+    width: 100vw;
 }
