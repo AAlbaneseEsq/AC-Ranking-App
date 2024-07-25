@@ -35,10 +35,10 @@ function Submit() {
     return ( 
     
     <div>
-    <Navbar className={styles.MyNav}> 
+    <Navbar className={styles.MyNav} fluid> 
       <Container>
-      <Dropdown style={hideChart()} >
-      <Dropdown.Toggle id="dropdown-basic">
+      <Dropdown style={hideChart()}>
+      <Dropdown.Toggle id="dropdown-basic" className={styles.TopNavButtons}>
         Options
       </Dropdown.Toggle>
 
@@ -51,7 +51,7 @@ function Submit() {
       </Dropdown.Menu>
       </Dropdown>
       <Container ><Navbar.Brand><span className={styles.TopNavTitle}>&#128191; Album Club Ranking App &#128191;</span></Navbar.Brand></Container>
-      <span style={hideChart()}><Button className={styles.TopNavButton} onClick={() => submitForm()} >Get Results</Button>
+      <span style={hideChart()}><Button className={styles.TopNavButtons} onClick={() => submitForm()} >Get Results</Button>
       </span>
       </Container>
     </Navbar>

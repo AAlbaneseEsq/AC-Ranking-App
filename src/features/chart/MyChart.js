@@ -76,11 +76,11 @@ return (
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="3"> {generateContent(list, 3)}</Col>
 </Row>
 <Row className={styles.Row}>
-  <Col className={styles.Category} xs={2}>&#9994; Respect It</Col>
+  <Col className={styles.Category} xs={2}>&#x1f44d; Respect It</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="2"> {generateContent(list, 2)}</Col>
 </Row>
 <Row  className={styles.Row}>
-  <Col className={styles.Category} xs={2}> &#128579; It was fine!!!</Col>
+  <Col className={styles.Category} xs={2}> &#128579; It's fine!!!</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="1">{generateContent(list, 1)}</Col>
 </Row>
 </Container>

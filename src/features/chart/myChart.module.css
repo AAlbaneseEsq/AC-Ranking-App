@@ -1,12 +1,20 @@
+.App {
+/* align-content: center; */
+}
+
 .MyNav {
-    margin-bottom: 10px;
-    width: 100vw;
-    text-align: center;
-    height: 5vh;
+text-align: center;
+margin: auto;
 }
 
 .TopNavTitle {
-    font-size: 3vmax;
+    font-size: 4vw;
+}
+
+.TopNavButtons{
+    width: 10vw;
+    font-size: 1.5vw;
+    overflow-wrap: break-word;
 }
 
 .ResultsText {
@@ -17,13 +25,15 @@
 
 .Category {
     outline: black solid 1px;
-    font-size: 2vmax; 
     align-content: center;
+    text-align: center;
+    font-size: xx-large;
+    overflow-wrap: break-word;
 }
 
 .Row {
     min-height: 75px;
-    height: 10vh;
+    min-height: 10vh;
 }
 
 .Ranking {
@@ -36,7 +46,6 @@
     outline: black solid 2px;
     margin: auto;
     width: 100vw;
-    height: 60vh;
 }
 
 .Art {
