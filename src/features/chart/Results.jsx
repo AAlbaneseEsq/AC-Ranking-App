@@ -19,7 +19,7 @@ function Results() {
       centered
     >
       <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter" style={{margin: "auto", fontSize: "3vw"}}>
+        <Modal.Title id="contained-modal-title-vcenter" className={styles.ResultsTitle}>
           Here are your results!
         </Modal.Title>
       </Modal.Header>

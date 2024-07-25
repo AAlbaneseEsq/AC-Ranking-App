@@ -48,8 +48,7 @@ export const chartSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    updateRating: (state, action) => {
-      
+    updateRating: (state, action) => {      
       var newObj = [...current(state.albumList)]
       var NewEntry = {
         artist: action.payload.oldObj.artist,

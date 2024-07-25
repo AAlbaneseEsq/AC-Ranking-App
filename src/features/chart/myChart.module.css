@@ -1,39 +1,48 @@
-.App {
-/* align-content: center; */
-}
+/* .App {
+align-content: center;
+} */
 
-.MyNav {
-text-align: center;
-margin: auto;
-}
+/* Nav Bar */
 
 .TopNavTitle {
-    font-size: 4vw;
+    margin: auto;
+    font-size: 2.5vmax;
+    text-align: center;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
-.TopNavButtons{
-    width: 10vw;
-    font-size: 1.5vw;
-    overflow-wrap: break-word;
+.ButtonsDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.ResultsText {
-    display: inline-block;
-    margin: 5px;
-    font-size: 2vmax;
+.ButtonLeft{
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
 }
+
+.ButtonRight{
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    height: 50%;
+}
+
+/* Chart */
 
 .Category {
     outline: black solid 1px;
     align-content: center;
     text-align: center;
-    font-size: xx-large;
-    overflow-wrap: break-word;
+    font-size: 1.5vmax;
 }
 
 .Row {
-    min-height: 75px;
-    min-height: 10vh;
+    min-height: 8vh;
 }
 
 .Ranking {
@@ -48,13 +57,43 @@ margin: auto;
     width: 100vw;
 }
 
+/* Unpicked */
+
 .Art {
     aspect-ratio: 1/1;
-    max-height: 100px;
+    height: 6vmax
 }
 
 .Null {
-    padding: 25px;
+    padding-top: 15px;
     text-align: center;    
     width: 100vw;
+    height: 30vh;
+    /* overflow: scroll; */
+}
+
+/* Results */
+
+.ResultsTitle {
+    margin: auto;
+}
+
+.ResultsText {
+    display: inline-block;
+    margin: 5px;
+    font-size: 2vmax;
+}
+
+.MyCarousel {
+    text-align: center;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
+
+.CarouselArt {
+    aspect-ratio: 1/1;
+    height: 200px;
+    margin-bottom: 10px;
+
 }

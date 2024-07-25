@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCSV } from './features/chart/chartSlice';
 import Results from './features/chart/Results';
 import Submit from './features/chart/Submit';
+import MyCarousel from './features/chart/MyCarousel';
 import styles from './features/chart/myChart.module.css'
 
 function App() {
@@ -18,11 +19,12 @@ function App() {
   }, [])
 
   return (
-    <div className={styles.App}>
+    <div>
         <Submit  />        
         <MyRadio />
         <MyChart />
         <Results />
+        <div className={styles.MyCarousel}><MyCarousel /></div>
     </div>
   );
 }

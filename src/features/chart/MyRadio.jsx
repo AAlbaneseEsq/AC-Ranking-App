@@ -1,6 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterUser } from './chartSlice';
+import styles from './myChart.module.css'
 
 function MyRadio() {
 
@@ -13,8 +14,8 @@ function MyRadio() {
 
     return ( 
 <Form>
-      
-<Form.Select size="lg" style={hideSelect()} onChange={(e) => dispatch(filterUser(e.target.value))}>
+ <div style={hideSelect()} className={styles.TopNavTitle}>&#128191; Album Club Ranking App &#128191;</div>
+<Form.Select className={styles.UserChoice} size="md" style={hideSelect()} onChange={(e) => dispatch(filterUser(e.target.value))}>
         <option>Select a User</option>
         <option key="1" value="tom">Tom</option>
         <option key="2" value="jill">Jill</option>

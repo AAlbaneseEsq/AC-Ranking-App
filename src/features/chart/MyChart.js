@@ -60,27 +60,27 @@ return (
 <div style={hideChart()}>
 <Container fluid className={styles.Chart}>
 <Row className={styles.Row}>
-  <Col className={styles.Category} xs={2}>&#128175; Holy Moly</Col>
+  <Col className={styles.Category} xs={2}>&#128175;<br />Holy Moly</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="6"> {generateContent(list, 6)} </Col>
 </Row>
 <Row className={styles.Row}>
-  <Col className={styles.Category} xs={2}>&#128293; Straight Fire</Col>
+  <Col className={styles.Category} xs={2}>&#128293;<br />Straight Fire</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="5"> {generateContent(list, 5)} </Col>
 </Row>
 <Row className={styles.Row}>
-  <Col className={styles.Category} xs={2}>&#128184; Cash Money</Col>
+  <Col className={styles.Category} xs={2}>&#128184;<br />Cash Money</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="4"> {generateContent(list, 4)}</Col>
 </Row>
 <Row className={styles.Row}>
-  <Col className={styles.Category} xs={2}>&#128054; Much waow, very good</Col>
+  <Col className={styles.Category} xs={2}>&#128054;<br />Much waow, very good</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="3"> {generateContent(list, 3)}</Col>
 </Row>
 <Row className={styles.Row}>
-  <Col className={styles.Category} xs={2}>&#x1f44d; Respect It</Col>
+  <Col className={styles.Category} xs={2}>&#x1f44d;<br />Respect It</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="2"> {generateContent(list, 2)}</Col>
 </Row>
 <Row  className={styles.Row}>
-  <Col className={styles.Category} xs={2}> &#128579; It's fine!!!</Col>
+  <Col className={styles.Category} xs={2}>&#128579;<br />It's fine!!!</Col>
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="1">{generateContent(list, 1)}</Col>
 </Row>
 </Container>

@@ -34,11 +34,10 @@ function Submit() {
 
     return ( 
     
-    <div>
-    <Navbar className={styles.MyNav} fluid> 
-      <Container>
-      <Dropdown style={hideChart()}>
-      <Dropdown.Toggle id="dropdown-basic" className={styles.TopNavButtons}>
+    <div> 
+      <div style={hideChart()} className={styles.ButtonsDiv}>
+      <Dropdown>
+      <Dropdown.Toggle id="dropdown-basic" className={styles.ButtonLeft}>
         Options
       </Dropdown.Toggle>
 
@@ -50,13 +49,12 @@ function Submit() {
         <Dropdown.Item href="#/action-5">Switch to Card View (Mobile-Friendly)</Dropdown.Item>
       </Dropdown.Menu>
       </Dropdown>
-      <Container ><Navbar.Brand><span className={styles.TopNavTitle}>&#128191; Album Club Ranking App &#128191;</span></Navbar.Brand></Container>
-      <span style={hideChart()}><Button className={styles.TopNavButtons} onClick={() => submitForm()} >Get Results</Button>
-      </span>
-      </Container>
-    </Navbar>
+      <div className={styles.TopNavTitle}>{user}'s Album Club Ranking</div>
+      <Button className={styles.ButtonRight} onClick={() => submitForm()} >Get Results</Button>
+      </div>
 
       
+
     <Modal
       show={error}
       size="md"
