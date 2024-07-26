@@ -59,6 +59,11 @@ align-content: center;
 
 /* Unpicked */
 
+.ViewButtons {
+    margin-top: 15px;
+    text-align: center;
+}
+
 .Art {
     aspect-ratio: 1/1;
     height: 6vmax

@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Image } from 'react-bootstrap';
+import { Button, ButtonGroup, Image } from 'react-bootstrap';
 import { updateRating,dragStart } from './chartSlice';
 import styles from './myChart.module.css'
 
@@ -84,6 +84,13 @@ return (
   <Col className={styles.Ranking} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="1">{generateContent(list, 1)}</Col>
 </Row>
 </Container>
+<div className={styles.ViewButtons}>
+<ButtonGroup>
+  <Button disabled>View Type:</Button>
+  <Button>A</Button>
+  <Button>B</Button>
+</ButtonGroup>
+</div>
   <div className={styles.Null} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="null">
     {list.map(x =>     
     {
