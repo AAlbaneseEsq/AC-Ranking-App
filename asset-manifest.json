@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/AC-Ranking-App/static/css/main.834ed60f.css",
-    "main.js": "/AC-Ranking-App/static/js/main.a25ce328.js",
+    "main.css": "/AC-Ranking-App/static/css/main.8c9cab1a.css",
+    "main.js": "/AC-Ranking-App/static/js/main.bf59f24d.js",
     "static/js/453.4f04413e.chunk.js": "/AC-Ranking-App/static/js/453.4f04413e.chunk.js",
     "index.html": "/AC-Ranking-App/index.html",
-    "main.834ed60f.css.map": "/AC-Ranking-App/static/css/main.834ed60f.css.map",
-    "main.a25ce328.js.map": "/AC-Ranking-App/static/js/main.a25ce328.js.map",
+    "main.8c9cab1a.css.map": "/AC-Ranking-App/static/css/main.8c9cab1a.css.map",
+    "main.bf59f24d.js.map": "/AC-Ranking-App/static/js/main.bf59f24d.js.map",
     "453.4f04413e.chunk.js.map": "/AC-Ranking-App/static/js/453.4f04413e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.834ed60f.css",
-    "static/js/main.a25ce328.js"
+    "static/css/main.8c9cab1a.css",
+    "static/js/main.bf59f24d.js"
   ]
 }
