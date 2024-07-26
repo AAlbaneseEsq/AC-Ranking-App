@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Button, ButtonGroup, Image } from 'react-bootstrap';
-import { updateRating,dragStart } from './chartSlice';
+import { Button, Image } from 'react-bootstrap';
+import { updateRating, dragStart, changeView } from './chartSlice';
 import styles from './myChart.module.css'
 
 export function MyChart() {
@@ -11,6 +11,8 @@ export function MyChart() {
     const list = useSelector((state) => state.chart.albumList)
     const user = useSelector((state) => state.chart.user)
     const dragging = useSelector((state) => state.chart.dragging)
+    const showCarousel = useSelector((state) => state.chart.showCarousel)
+
     const dispatch = useDispatch()
 
     const handleDragOver = (e) => {
@@ -55,6 +57,10 @@ export function MyChart() {
     )
     }
 
+    function showList() {
+      if (showCarousel === false) {return {visibility: "visible"}} else return {visibility: "hidden", display: "none"}
+    }
+
 
 return (
 <div style={hideChart()}>
@@ -85,13 +91,9 @@ return (
 </Row>
 </Container>
 <div className={styles.ViewButtons}>
-<ButtonGroup>
-  <Button disabled>View Type:</Button>
-  <Button>A</Button>
-  <Button>B</Button>
-</ButtonGroup>
+  <Button className={styles.ToggleButton} onClick={() => dispatch(changeView())}>Toggle Interface</Button>
 </div>
-  <div className={styles.Null} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="null">
+  <div className={styles.Null} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)} id="null" style={showList()}>
     {list.map(x =>     
     {
       if((x.rating === null))

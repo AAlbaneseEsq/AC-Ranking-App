@@ -142,8 +142,8 @@ export const chartSlice = createSlice({
     handleWarning: (state, action) => {
       state.warning = action.payload
     },
-    changeView: (state, action) => {
-      state.showCarousel = action.payload
+    changeView: (state) => {
+    (state.showCarousel === false) ? (state.showCarousel = true) : (state.showCarousel = false)
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,

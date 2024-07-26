@@ -1,7 +1,7 @@
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { submitData2, resetData, handleError, getRandom, saveLocal, getLocal, handleWarning } from "./chartSlice";
-import { Modal, Navbar, Dropdown } from "react-bootstrap";
+import { Modal, Dropdown } from "react-bootstrap";
 import styles from "./myChart.module.css"
 
 function Submit() {
@@ -46,7 +46,6 @@ function Submit() {
         <Dropdown.Item href="#/action-2" onClick={() => dispatch(getRandom())} >Random Ranking</Dropdown.Item>
         <Dropdown.Item href="#/action-3" onClick={() => dispatch(getLocal())}>Load Saved Ranking</Dropdown.Item>
         <Dropdown.Item href="#/action-4" onClick={() => dispatch(handleWarning(true))}>Save Current Ranking</Dropdown.Item>
-        <Dropdown.Item href="#/action-5">Switch to Card View (Mobile-Friendly)</Dropdown.Item>
       </Dropdown.Menu>
       </Dropdown>
       <div className={styles.TopNavTitle}>{user}'s Album Club Ranking</div>

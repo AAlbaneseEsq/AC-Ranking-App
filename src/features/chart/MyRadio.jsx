@@ -9,13 +9,33 @@ function MyRadio() {
   const user = useSelector((state) => state.chart.user)
 
   function hideSelect() {
-    if (user === null) {return {width: "50%", margin: "auto"}} else return {display: "none"}
+    if (user === null) {return {}} else return {display: "none"}
   }
 
     return ( 
-<Form>
- <div style={hideSelect()} className={styles.TopNavTitle}>&#128191; Album Club Ranking App &#128191;</div>
-<Form.Select className={styles.UserChoice} size="md" style={hideSelect()} onChange={(e) => dispatch(filterUser(e.target.value))}>
+<div style={{textAlign: "center"}}>
+<div style={hideSelect()} className={styles.InitialTitle}><span>&#129351;</span><div>Album Club Ranking App</div><span>&#128191;</span></div>
+<p style={hideSelect()} className={styles.IntroText}> 
+ Have you ever wondered:
+ <br />
+ <br />
+ 
+"Whose picks in Album Club&#8482; landed most in my Q-zone?"
+ <br />
+"Does my anectdotal experience align with empirical reality?"
+ <br />
+"Why would anyone ever half-ass stupid shit?"
+ <br />
+ <br />
+If your answer is yes, your name is AJMA, and you spent two weeks coding a very niche app for your friends!
+ <br /> 
+ <br />
+Pick a user to get started:
+ <br />
+ <br />
+</p>
+<Form className={styles.UserChoice}>
+<Form.Select size="md" style={hideSelect()} onChange={(e) => dispatch(filterUser(e.target.value))}>
         <option>Select a User</option>
         <option key="1" value="tom">Tom</option>
         <option key="2" value="jill">Jill</option>
@@ -25,6 +45,12 @@ function MyRadio() {
         <option key="6" value="ajma">AJMA</option>
       </Form.Select>
     </Form>
+    <br />
+    <p className={styles.IntroText} style={hideSelect()}>You can drag and drop albums into one of six totally positive, completely non-judgmental tiers. 
+      <br />If you prefer a more mobile-friendly interface, you can toggle the view type to go one album at a time.
+      <br />Remeber to save your ranking as you go in the "Options" menu!
+      </p>
+    </div>
      );
 }
 

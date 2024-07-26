@@ -4,6 +4,29 @@ align-content: center;
 
 /* Nav Bar */
 
+.InitialTitle {
+    font-size: 2.5vmax;
+    text-align: center;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.UserChoice {
+    font-size: 1.5vmax;
+    width: 50%;
+    margin: auto;
+}
+
+.IntroText {
+    margin: auto;
+    width: 70%;
+    font-size: 1.5vmax;
+}
+
 .TopNavTitle {
     margin: auto;
     font-size: 2.5vmax;
@@ -64,13 +87,19 @@ align-content: center;
     text-align: center;
 }
 
+.ToggleButton {
+    font-size: 1.5vmax;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
 .Art {
     aspect-ratio: 1/1;
     height: 6vmax
 }
 
 .Null {
-    padding-top: 15px;
+    padding-top: 5px;
     text-align: center;    
     width: 100vw;
     height: 30vh;
