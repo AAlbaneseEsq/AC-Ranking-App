@@ -118,6 +118,10 @@ align-content: center;
     font-size: 2vmax;
 }
 
+.ResultsFooter{
+   text-align: center;
+}
+
 .MyCarousel {
     text-align: center;
     height: 400px;

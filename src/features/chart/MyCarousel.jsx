@@ -15,11 +15,11 @@ function MyCarousel() {
       }
 
     function myFilter() {
-      return list.filter((x) => x.user !== user)
+      return list.filter((x) => ((x.user !== user) && (x.rating === null)))
     }
 
     function show() {
-      if (showCarousel === true) {return {visibility: "visible"}} else return {visibility: "hidden", display: "none"}
+      if ((showCarousel === true)) {return {visibility: "visible"}} else return {visibility: "hidden", display: "none"}
     }
 
     return ( 

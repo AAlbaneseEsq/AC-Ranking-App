@@ -10,11 +10,11 @@ const initialState = {
   warning: false,
   dragging: null,
   user: null,
-  userList: ['ajma', 'tom', 'ryan', 'rachel', 'jill', 'ricardo'],
+  userList: [],
   scores: [],
   renderResults: false,
   initialList: [],
-  showCarousel: false
+  showCarousel: false,
 };
 
 function parseCSV(csvText) {
@@ -59,7 +59,7 @@ export const chartSlice = createSlice({
         pickDate: action.payload.oldObj.pickDate,
         artLink: action.payload.oldObj.artLink,
         popularity: action.payload.oldObj.popularity,
-        rating: action.payload.newRating
+        rating: action.payload.newRating,
       }
     
       var updatedArray = newObj.map(x => {
@@ -71,12 +71,11 @@ export const chartSlice = createSlice({
      
       state.albumList = updatedArray
 
+
     },
     dragStart: (state, action) => {
       state.dragging = action.payload;
-      // console.log(state.dragging)
     },
-    // Use the PayloadAction type to declare the contents of `action.payload`
     filterUser: (state, action) => {
       state.user = action.payload;
     },
@@ -169,6 +168,12 @@ export const chartSlice = createSlice({
         ))
         state.albumList = obj
         state.initialList = obj
+        var users = []
+
+        for (let i = 0; i < state.albumList.length; i++)
+          users.push(state.albumList[i].user)
+        
+        state.userList = [...new Set(users)]
 
       })
       .addCase(fetchCSV.rejected, (state, action) => {
