@@ -16,6 +16,12 @@ function Results() {
       else return {color: "red"}
     }
 
+    function myCopy() {
+      var myStringArray = scores.map((x) => ' ' + x.user + ': ' + x.userScore.toFixed(1) + '%' )
+      var myString = myStringArray.toString()
+      navigator.clipboard.writeText(myString.toUpperCase());
+    }
+
 
     return ( 
 <Modal
@@ -25,12 +31,12 @@ function Results() {
       centered
     >
       <Modal.Header>
-        <Modal.Title id="contained-modal-title-vcenter" className={styles.ResultsTitle}>
-          Here are your results!
+        <Modal.Title id="contained-modal-title-vcenter" style={{margin: "auto", fontSize: "2.5vmax"}}>
+          <b><span style={{textTransform: "capitalize"}}>{currentUser}'s</span> Results</b>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div style={{textAlign: "center"}}>
+        <div style={{textAlign: "center"}} id="resultsText">
         {scores.map((x) => {
         if (x.user !== currentUser)
             return (<div className={styles.ResultsText} key={Math.random()}><span style={{textTransform: "capitalize"}}><b>{x.user}:</b> </span><span style={scoreCSS(x.userScore)}>{x.userScore.toFixed(1)}%</span></div>) 
@@ -38,12 +44,10 @@ function Results() {
         })}
         </div>
       </Modal.Body>
-      <Modal.Footer >
-        <div className={styles.ResultsFooter}>
+      <Modal.Footer style={{margin: "auto"}}>
       <Button className={styles.ResultsButton} onClick={() => dispatch(closeResults())} >Return to Ranking</Button> 
-      <Button>Share Results (TBD)</Button> 
-      <Button  onClick={() => window.location.reload()}>Reset App</Button>
-      </div>
+      <Button className={styles.ResultsButton} onClick={() => myCopy()}>Copy to Clipboard</Button>
+      <Button className={styles.ResultsButton} onClick={() => window.location.reload()}>Reset App</Button>
       </Modal.Footer>
     </Modal>
      );

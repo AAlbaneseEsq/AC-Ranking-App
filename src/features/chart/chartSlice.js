@@ -133,6 +133,7 @@ export const chartSlice = createSlice({
     },
     saveLocal: (state) => {
       localStorage.setItem("savedRanks", JSON.stringify(state.albumList));
+      state.warning = false
     },
     getLocal: (state) => {
       const savedRanks = JSON.parse(localStorage.savedRanks)

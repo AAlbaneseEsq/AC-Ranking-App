@@ -8,7 +8,22 @@ function MyCarousel() {
     const list = useSelector((state) => state.chart.albumList)
     const user = useSelector((state) => state.chart.user)
     const showCarousel = useSelector((state) => state.chart.showCarousel)
+    const dragging = useSelector((state) => state.chart.dragging)
+
     const dispatch = useDispatch()
+
+    const handleDragOver = (e) => {
+      e.preventDefault();
+    }
+
+    const handleDrop = (e) => {
+      e.preventDefault();
+      var rating = parseInt(e.target.id)
+      var adj = (rating > 0) ? rating : null
+      var data = dragging
+      dispatch(updateRating({newRating: adj, oldObj: data}))
+      ;
+    };
 
     function hideAlbums(x) {
         if (user !== x) {return {visibility: "visible"}} else return {visibility: "hidden", display: "none"}
@@ -23,7 +38,7 @@ function MyCarousel() {
     }
 
     return ( 
-<Carousel style={show()} slide={false} variant="dark" indicators={false} interval={null} touch={true}>
+<Carousel style={show()} slide={false} variant="dark" indicators={false} interval={null} touch={true} onDragOver={handleDragOver} onDrop={(e) => handleDrop(e)}>
         {myFilter().map(x =>     
 
             (<Carousel.Item style={hideAlbums(x.user)} key={Math.random()} className={styles.MyCarousel}>
